@@ -8,14 +8,16 @@ const ShowStock = (props) => {
 
     const [stock, setStock] = React.useState(null);
 
-    const getStock = async () => {
-        const response = await fetch(url); 
-        const data = await response.json();
-        setStock(data);
-    };
+    // const getStock = async () => {
+    //     const response = await fetch(url); 
+    //     const data = await response.json();
+    //     setStock(data);
+    // };
 
     React.useEffect(() => {
-        getStock();
+        const found = stocks.find(stock => 
+            symbol === stock.symbol
+            );
     }, []);
 
     const loaded = () => {
