@@ -1,29 +1,31 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { useHistory } from 'react-router-dom';
+import stocks from '../stock-data'
 
 const Stocks = (props) => {
+    const history = useHistory();
+    return (
+        <>
+        <div className='tableDiv'>
+                <h1 className='mostActive'> <span className='M'>M</span><span className='mostO'>o</span><span className='mostS'>s</span><span className='mostT'>t</span> <span className='a'>A</span><span className='c'>c</span><span className='activeT'>t</span><span className='i'>i</span><span className='v'>v</span><span className='e'>e</span> <span className='stockS'>S</span><span className='stocksT'>t</span><span className='stocksO'>o</span><span className='c'>c</span><span className='k'>k</span><span className='stocksS'>s</span></h1>
+                <div className='companiesGrid'>
+                    <p className='gridOne'>Company Name</p>
+                    <p className='gridTwo'>Current Price</p>
+                    <p className='gridThree'>Highest Price</p>
+                    </div>
+            {stocks.map((investment) => {
+                const { name, symbol, lastPrice, high } = investment;
+                return(
+                        <div onClick={()=>history.push(`/showstock/${symbol}`)} className='companies'> 
+                                <p className='stocksList'>{name}</p>
+                                <p className='stocksList'>{lastPrice}</p>
+                                <p className='stocksList'>{high}</p>
+                        </div>
+                )
+            })}
+        </div>
+        </>
+      );
+    };
 
-const stocks = [
-    {name: "Apple Inc.", symbol: "AAPL", lastPrice: 140.64, change: -0.280000000000001, high: 141.74, low: 140.35, open: 141.5},
-    {name: "Microsoft Corporation", symbol: "MSFT", lastPrice: 64.98, change: 0.109999999999999, high: 65.45, low: 64.76, open: 65.12},
-    {name: "Alphabet Inc.", symbol: "GOOGL", lastPrice: 835.14, change: -4.50999999999999, high: 844, low: 829.1, open: 842},
-    {name: "Facebook, Inc.", symbol: "FB", lastPrice: 140.34, change: 0.810000000000002, high: 141.0244, low: 139.76, open: 140.08},
-    {name: "Oracle Corporation", symbol: "ORCL", lastPrice: 44.65, change: -0.300000000000004, high: 45.09, low: 44.575, open: 44.91},
-    {name: "Intel Corporation", symbol: "INTL", lastPrice: 36.16, change: -0.370000000000005, high: 36.78, low: 36.125, open: 36.58}
-  ];
-
-  return (
-    <div className="stocks">
-        {stocks.map((stock) => {
-            const { name, symbol } = stock;
-
-            return (
-                <Link to={`/price/${symbol}`}>
-                    <h2>{name}</h2>
-                </Link>
-            );
-        })}
-    </div>
-  );
-};
-  export default Stocks;
+export default Stocks;

@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 
 const About = (props) => {
-    return (
-        <>
-        <div className='aboutpage'>
-        <h1>ABOUT</h1>
-        <p>Listing Stocks</p>
-        </div>
-        </>
-    );
+  return (
+    <>
+    <div className='aboutpage'>
+    <h1>About</h1>
+    <p>This is a project to list different stocks</p>
+    </div>
+    </>
+  );
 };
 
 export default About;

@@ -2,46 +2,39 @@ import React from 'react';
 import stocks from '../stock-data';
 
 const ShowStock = (props) => {
-    const symbol = props.match.params.symbol;
-    
-    console.log(symbol);
+  const symbol = props.match.params.symbol;
+  console.log(symbol);
+  const [stock, setStock] = React.useState(null);
 
-    const [stock, setStock] = React.useState(null);
+  React.useEffect(() => {
+    const found = stocks.find(stock =>
+      symbol === stock.symbol
+    ); 
+    setStock(found);
+  }, []);
 
-    // const getStock = async () => {
-    //     const response = await fetch(url); 
-    //     const data = await response.json();
-    //     setStock(data);
-    // };
+  const loaded = () => {
+    return (
+      <>
+      <div>
+      <div>Stock Show Page</div>
+      <h1 className='leftside'>{stock.symbol}</h1>
+      <h1 className='rightside'>{stock.name}</h1>
+      <p className='leftside'>Last Price: {stock.lastPrice}</p>
+      <p className='rightside'>High: {stock.high}</p>
+      <p className='leftside'>Low: {stock.low}</p>
+      <p className='rightside'>Open: {stock.open}</p>
+      </div>
+      </>
+    );
+  };
 
-    React.useEffect(() => {
-        const found = stocks.find(stock => 
-            symbol === stock.symbol
-            );
-    }, []);
+  const loading = () => {
+    return <h1>Loading...</h1>;
+  };
 
-    const loaded = () => {
-        return (
-            <>
-            <div>
-                <div>Stock Show Page</div>
-                <h1>{stock.symbol}</h1>
-                <h1>{stock.name}</h1>
-                <p>Last Price: {stock.lastPrice}</p>
-                <p>Change: {stock.change}</p>
-                <p>High: {stock.high}</p>
-                <p>Low: {stock.low}</p>
-                <p>Open: {stock.open}</p>
-            </div>
-            </>
-        );
-    };
-
-    const loading = () => {
-        return <h1>Loading...</h1>;
-    };
-
-    return stock ? loaded() : loading();
+  // if stock has data, run the loaded function, otherwise, run loading
+  return stock ? loaded() : loading(); 
 };
 
 export default ShowStock;

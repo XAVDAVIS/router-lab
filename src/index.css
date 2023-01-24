@@ -1,18 +1,196 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: American Typewriter, serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+div{
+  font-family: American Typewriter, serif;
 }
 
 .nav {
   display: flex;
+  background-color: #1c110a;
+  color: white;
+}
+
+.navLinks {
+  color: white;
+}
+
+.navLinks:hover{
+  color:#9b2915;
+}
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 50px;
+  padding: 0 20px;
+  background: #1c110a;
+}
+
+.nav > * {
+  padding-right: 20px;
+}
+
+.nav-logo {
+  color: aqua;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+.nav-logo:hover{
+  color: white;
+}
+
+.nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.main {
+  padding: 20px;
+}
+.tableDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.companiesGrid {
+  background-color: rgb(13, 154, 159);
+  padding: 0px 15px 0px 15px;
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: 
+    "one two three"; */
+}
+
+.companies{
+  background-color: orange;
+  padding: 0px 15px 0px 15px;
+  width: 350px;
+  display: flex;
   justify-content: space-between;
 }
+.companies:hover{
+  background-color: orange;
+  color: white;
+  cursor:progress;
+}
+a {
+  display: flex;
+}
+
+.aboutpage {
+  display: grid;
+  background-color: #625679;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.leftside {  
+  /* This section calls the slideInFromLeft animation we defined above */
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.rightside {  
+  /* This section calls the slideInFromLeft animation we defined above */
+  animation: 1s ease-out 0s 1 slideInFromRight;
+}
+
+.mostActive{
+  display: flex;
+  height: 90px;
+  justify-content: baseline;
+  cursor: default;
+}
+
+/* .M:hover{
+  font-size: 90px;
+  color:#ff00ff;
+}
+.mostO:hover{
+  font-size: 90px;
+  color:#ff0080;
+}
+.mostS:hover{
+  font-size: 90px;
+  color:#ff0000;
+}
+.mostT:hover{
+  font-size: 90px;
+  color:#ff8000;
+}
+.a:hover{
+  font-size: 90px;
+  color:#ffff00;
+}
+.c:hover{
+  font-size: 90px;
+  color:#ffff00;
+}
+.activeT:hover{
+  font-size: 90px;
+  color:#80ff00;
+}
+.i:hover{
+  font-size: 90px;
+  color:#00ff00;
+}
+.v:hover{
+  font-size: 90px;
+  color:#00ff80;
+}
+.e:hover{
+  font-size: 90px;
+  color:#00ffff;
+}
+.stockS:hover{
+  font-size: 90px;
+  color:#0080ff;
+}
+.stocksT:hover{
+  font-size: 90px;
+  color:#0000ff;
+}
+.stocksO:hover{
+  font-size: 90px;
+  color:#0000ff;
+}
+.c:hover{
+  font-size: 90px;
+  color:#8000ff;
+}
+.k:hover{
+  font-size: 90px;
+  color:#ff00ff;
+}
+.stocksS:hover{
+  font-size: 90px;
+  color:#ff0080;
+} */
