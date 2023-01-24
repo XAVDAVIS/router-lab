@@ -94,28 +94,9 @@ a {
   display: grid;
   background-color: #625679;
 }
-
-@keyframes slideInFromLeft {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
 .leftside {  
   /* This section calls the slideInFromLeft animation we defined above */
   animation: 1s ease-out 0s 1 slideInFromLeft;
-}
-
-@keyframes slideInFromRight {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
 }
 
 .rightside {  
